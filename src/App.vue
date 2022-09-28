@@ -1,30 +1,9 @@
 <template>
-  <div>
-    <router-link to="/">Home</router-link>
-    <router-view v-slot="{ Component }">
-      <Suspense>
-        <component :is="Component" />
-      </Suspense>
-    </router-view>
-  </div>
+  <div>{{ m }}</div>
 </template>
 
-<style>
-@font-face {
-  font-family: 'Inter';
-  font-style: italic;
-  font-weight: 400;
-  font-display: swap;
-}
-.inter {
-  font-family: 'Inter';
-}
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<script setup>
+const newLocale = 'en';
+const messages = await import(`./locales/${newLocale}.json`);
+const m = messages.default;
+</script>
